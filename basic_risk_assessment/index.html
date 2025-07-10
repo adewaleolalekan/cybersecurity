@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Risk Assessment for a Fintech Company</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .risk-critical { background-color: #7f1d1d; /* bg-red-900 */ }
+        .risk-high { background-color: #7c2d12; /* bg-orange-900 */ }
+        .risk-medium { background-color: #78350f; /* bg-yellow-900 */ }
+        .risk-low { background-color: #166534; /* bg-green-800 */ }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Case Study: Risk Assessment for a Fintech Company</h1>
+            <p class="mt-4 text-lg text-cyan-400">Analyzing Threats and Vulnerabilities for NextGen Solutions</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Scope Definition -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Scope of the Assessment</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2"><i class="fas fa-bullseye mr-2 text-cyan-400"></i>Assets to be Protected</h3>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li>Customer financial data and payment information</li>
+                            <li>Proprietary financial software and applications</li>
+                            <li>Cloud infrastructure (AWS, GitLab)</li>
+                            <li>On-premises servers and network infrastructure</li>
+                            <li>Compliance documentation and audit reports</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2"><i class="fas fa-search mr-2 text-cyan-400"></i>Assessment Areas</h3>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li>Network Security (Internal & External)</li>
+                            <li>Application Security (Payment Platforms)</li>
+                            <li>Data Protection Measures</li>
+                            <li>Physical Security Controls</li>
+                            <li>Compliance (PCI DSS, GDPR)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Risk Matrix -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Risk Matrix</h2>
+                <p class="mb-6 text-sm text-gray-400">Risks were prioritized by mapping their likelihood against their potential impact on the organization.</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse text-center">
+                        <thead>
+                            <tr>
+                                <th class="p-3 border border-gray-600 bg-gray-700 w-1/4">Likelihood</th>
+                                <th class="p-3 border border-gray-600 bg-gray-700">Low Impact</th>
+                                <th class="p-3 border border-gray-600 bg-gray-700">Moderate Impact</th>
+                                <th class="p-3 border border-gray-600 bg-gray-700">Severe Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 border border-gray-600 bg-gray-700 font-semibold">High</td>
+                                <td class="p-3 border border-gray-600 risk-medium"></td>
+                                <td class="p-3 border border-gray-600 risk-high">Brute Force Attacks</td>
+                                <td class="p-3 border border-gray-600 risk-critical">Phishing Attacks<br>Cloud Misconfigurations</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border border-gray-600 bg-gray-700 font-semibold">Medium</td>
+                                <td class="p-3 border border-gray-600 risk-low"></td>
+                                <td class="p-3 border border-gray-600 risk-medium">Inadequate Patch Management<br>Data Leakage</td>
+                                <td class="p-3 border border-gray-600 risk-high">Insider Threat<br>API Exploits<br>Malware Infection</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border border-gray-600 bg-gray-700 font-semibold">Low</td>
+                                <td class="p-3 border border-gray-600 risk-low"></td>
+                                <td class="p-3 border border-gray-600 risk-low"></td>
+                                <td class="p-3 border border-gray-600 risk-medium">Physical Security Breach<br>Regulatory Non-compliance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Top Priority Risks -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. Top Priority Risks & Mitigation Strategies</h2>
+                <div class="space-y-6">
+                    <!-- Risk Item -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg text-red-400">R1: Phishing Attacks (Critical)</h3>
+                        <p class="text-sm mt-2">Implement regular phishing simulation training, deploy advanced AI-powered email filtering, enforce MFA on all sensitive systems, and establish clear incident response procedures.</p>
+                    </div>
+                    <!-- Risk Item -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg text-orange-400">R2: Insider Threat (High)</h3>
+                        <p class="text-sm mt-2">Enhance privileged access management (CyberArk), implement user behavior analytics to detect anomalies, conduct quarterly access reviews, and deploy data loss prevention (DLP) solutions.</p>
+                    </div>
+                    <!-- Risk Item -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg text-orange-400">R3: API Exploits (High)</h3>
+                        <p class="text-sm mt-2">Integrate API security testing into the SDLC, deploy an API gateway with rate limiting, conduct regular third-party penetration testing of payment endpoints, and create detailed API security documentation.</p>
+                    </div>
+                    <!-- Risk Item -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-lg text-red-400">R4: Cloud Misconfigurations (Critical)</h3>
+                        <p class="text-sm mt-2">Deploy Cloud Security Posture Management (CSPM) tools, establish secure baseline templates for cloud resources, implement Infrastructure-as-Code (IaC) with security validation, and conduct regular cloud security assessments.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conclusion & Recommendations -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Conclusion & Key Recommendations</h2>
+                <div class="flex items-start">
+                    <i class="fas fa-flag-checkered text-green-400 text-3xl mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Conclusion</h3>
+                        <p class="mb-4">NextGen Solutions' position as a fintech provider exposes it to significant risks, primarily from social engineering, insider threats, and technical vulnerabilities. A proactive, multi-layered security strategy is essential for protecting its assets and maintaining customer trust.</p>
+                        <h3 class="font-semibold text-lg text-white">Key Recommendations</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+                            <li>Establish a robust security awareness program focused on fintech-specific threats.</li>
+                            <li>Implement continuous monitoring tools to detect anomalies across cloud and on-premise environments.</li>
+                            <li>Enhance the Secure Development Lifecycle (SDLC) with specific security requirements for financial apps.</li>
+                            <li>Formalize an incident response plan with playbooks for financial data breaches.</li>
+                            <li>Create a compliance framework that maps controls to both PCI DSS and GDPR requirements.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 Adewale Olalekan - A Personal Cybersecurity Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
