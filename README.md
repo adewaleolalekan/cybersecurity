@@ -79,6 +79,18 @@ An external compliance officer's report for a fictional fintech company, "NextGe
 
 ---
 
+## Project 7: Lab - Implementing RBAC in Linux
+A hands-on lab demonstrating the configuration of Role-Based Access Control on a Linux file system using standard permissions and Access Control Lists (ACLs).
+
+### Key Activities:
+- Defined roles (Admin, Staff, Guest) with specific, multi-layered permissions.
+- Used chmod, chown, and setfacl to implement the access control policy.
+- Tested permissions for each role to verify the configuration and enforce least privilege.
+- Documented the importance of ACLs for providing granular access beyond standard Unix permissions.
+
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/rbac/)
+
+---
 ## How to Use
 1. Clone this repository to your local machine:
    ```bash
