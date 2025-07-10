@@ -30,15 +30,16 @@ A hands-on lab demonstrating the creation and testing of a basic Local Area Netw
 
 ---
 
-## Project 3: Responsive Page
-A more advanced HTML and CSS project focused on creating a webpage that adapts to different screen sizes, ensuring a user-friendly experience on both mobile and desktop devices.
+## Project 3: Lab - VLAN Configuration & Inter-VLAN Routing
+A hands-on lab focused on network segmentation using Virtual LANs (VLANs) and enabling communication between them with a Layer 3 switch.
 
-### Features:
-- Responsive design using media queries.
-- A flexible navigation bar.
-- Layout adjustments for small, medium, and large screen sizes.
+### Lab Features:
+- Created and named two distinct VLANs (Admin & Guest).
+- Configured Switch Virtual Interfaces (SVIs) to act as default gateways.
+- Enabled IP routing on a Layer 3 switch to allow for inter-VLAN communication.
+- Verified connectivity between VLANs using ping.
 
-[View Project](https://adewaleolalekan.github.io/3mtt/responsive_page/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity/inter_vlan/)
 
 ---
 
@@ -69,4 +70,4 @@ A fun and creative project using JavaScript to create a meme generator. Users ca
 ## How to Use
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/adewaleolalekan/cybersecurity.git
