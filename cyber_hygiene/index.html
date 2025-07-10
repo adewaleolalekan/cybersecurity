@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Cyber Hygiene Audit</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for table headers */
+        th {
+            background-color: #374151; /* bg-gray-700 */
+        }
+        /* Style for priority cells */
+        .priority-high {
+            color: #ef4444; /* text-red-500 */
+            font-weight: 600;
+        }
+        .priority-medium {
+            color: #f97316; /* text-orange-500 */
+            font-weight: 600;
+        }
+        .priority-low {
+            color: #eab308; /* text-yellow-500 */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Strengthening My Digital Defenses</h1>
+            <p class="mt-4 text-lg text-cyan-400">A Personal Cyber Hygiene Audit and Action Plan</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Section 1: Audit Summary -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Where I Stood: My Initial Audit</h2>
+                <p class="mb-6">To improve my security, I first had to understand my weaknesses. Here's what I found during my self-assessment:</p>
+                <div class="space-y-4 text-gray-300">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Passwords and Authentication:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>My passwords were mostly strong and unique, but I wasn't updating them regularly.</li>
+                            <li>I was already using a password manager and had MFA enabled on my most important accounts.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Device Security:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>My main devices had active antivirus software and firewalls.</li>
+                            <li>However, I realized I was occasionally neglecting to update some of my third-party apps.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Social Media Privacy:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>While my profiles were set to private, I found that I was oversharing personal details and travel plans.</li>
+                            <li>I also wasn't reviewing my privacy settings as often as I should have been.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Email Practices:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>I felt confident in my ability to spot phishing attempts and verify email sources.</li>
+                            <li>My main weakness here was a lack of automated email filtering rules.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Data Backup:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>I had a decent backup routine: weekly to an external drive and monthly to the cloud.</li>
+                            <li class="text-orange-400">Key finding: I discovered my local backup was not encrypted, leaving it vulnerable.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Risk Evaluation -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Understanding My Risks</h2>
+                <p class="mb-6">Based on the audit, I evaluated each issue to prioritize what needed fixing first. This helped me focus my efforts on the most significant threats.</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="text-white">
+                            <tr>
+                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600">Risk Area</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600 text-center">Severity</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600 text-center">Likelihood</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600 text-center">My Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <tr class="hover:bg-gray-700 transition-colors duration-200">
+                                <td class="p-3">Outdated third-party apps</td>
+                                <td class="p-3 text-center">High</td>
+                                <td class="p-3 text-center">Medium</td>
+                                <td class="p-3 text-center priority-high">High</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700 transition-colors duration-200">
+                                <td class="p-3">Weak or reused passwords</td>
+                                <td class="p-3 text-center">Medium</td>
+                                <td class="p-3 text-center">High</td>
+                                <td class="p-3 text-center priority-high">High</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700 transition-colors duration-200">
+                                <td class="p-3">Oversharing on social media</td>
+                                <td class="p-3 text-center">Medium</td>
+                                <td class="p-3 text-center">Medium</td>
+                                <td class="p-3 text-center priority-medium">Medium</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700 transition-colors duration-200">
+                                <td class="p-3">Unencrypted local backup</td>
+                                <td class="p-3 text-center">Medium</td>
+                                <td class="p-3 text-center">Medium</td>
+                                <td class="p-3 text-center priority-medium">Medium</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700 transition-colors duration-200">
+                                <td class="p-3">Lack of email filters</td>
+                                <td class="p-3 text-center">Low</td>
+                                <td class="p-3 text-center">Medium</td>
+                                <td class="p-3 text-center priority-low">Low</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 3: Improvement Plan -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. My Action Plan for Better Security</h2>
+                 <p class="mb-6">With a clear view of the risks, I created this actionable plan to strengthen my digital defenses. These are the commitments I'm making to myself.</p>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Passwords and Authentication:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>I will rotate all my passwords every 6 months using my password manager.</li>
+                            <li>I will conduct an audit of my saved passwords to eliminate any duplicates.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Device Security:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>I will set monthly reminders to check and update all my third-party applications.</li>
+                            <li>I will enable automatic updates for applications wherever possible.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Social Media Privacy:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>I will review and adjust my privacy settings on all platforms every quarter.</li>
+                            <li>I will stop sharing travel or other sensitive updates in real time.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Email Practices:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>I will implement email filters to automatically flag emails from unknown domains.</li>
+                            <li>I will participate in a phishing simulation test quarterly to keep my skills sharp.</li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h3 class="font-semibold text-lg text-white">Data Backup:</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                            <li>I will encrypt my local backup drive using my OS's built-in encryption tools.</li>
+                            <li>I will create and follow a weekly backup checklist to ensure I don't miss it.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Monitoring -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Staying on Track: How I'll Monitor My Progress</h2>
+                <p class="mb-6">A plan is only useful if you stick to it. Here’s how I’ll hold myself accountable:</p>
+                <ul class="list-disc list-inside ml-4 space-y-2">
+                    <li>I will use a spreadsheet to log my password changes, software updates, and backup status.</li>
+                    <li>I have set calendar reminders for all my monthly and quarterly checks.</li>
+                    <li>I plan to re-evaluate my cyber hygiene every three months to assess my progress and adjust the action plan as needed.</li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 Adewale Olalekan - A Personal Cybersecurity Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
