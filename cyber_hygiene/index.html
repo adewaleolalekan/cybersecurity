@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Cyber Hygiene Audit</title>
+    <title>Case Study: Equifax Data Breach Analysis</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,189 +13,186 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Custom Styles -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Style for table headers */
-        th {
-            background-color: #374151; /* bg-gray-700 */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 1rem;
+            bottom: -1rem;
+            width: 2px;
+            background-color: #4b5563; /* gray-600 */
         }
-        /* Style for priority cells */
-        .priority-high {
-            color: #ef4444; /* text-red-500 */
-            font-weight: 600;
+        .timeline-item:last-child::before {
+            display: none;
         }
-        .priority-medium {
-            color: #f97316; /* text-orange-500 */
-            font-weight: 600;
-        }
-        .priority-low {
-            color: #eab308; /* text-yellow-500 */
-            font-weight: 600;
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0.8rem;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #06b6d4; /* cyan-500 */
+            border: 4px solid #1f2937; /* gray-800 */
         }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-300 antialiased">
 
     <!-- Main Container -->
-    <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
         <!-- Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Strengthening My Digital Defenses</h1>
-            <p class="mt-4 text-lg text-cyan-400">A Personal Cyber Hygiene Audit and Action Plan</p>
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Case Study: The Equifax Data Breach</h1>
+            <p class="mt-4 text-lg text-cyan-400">An Analysis of Failures and Key Takeaways</p>
         </header>
 
         <!-- Main Content Grid -->
         <main class="space-y-12">
 
-            <!-- Section 1: Audit Summary -->
+            <!-- Description & Timeline Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Left Column: Description & How it Happened -->
+                <div class="lg:col-span-2 space-y-12">
+                     <!-- Description -->
+                    <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">Organization Profile: Equifax Inc.</h2>
+                        <p>Equifax Inc. stands as one of the largest consumer credit reporting agencies in the United States. It collects and maintains sensitive financial and personal information on over 800 million individuals and 88 million businesses worldwide, offering credit monitoring and identity theft protection services.</p>
+                    </section>
+
+                    <!-- How the Breach Occurred -->
+                    <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">How the Breach Occurred</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-lg text-white">Primary Attack Vector</h3>
+                                <p class="mt-1">Attackers exploited a known critical vulnerability in the Apache Struts web framework (CVE-2017-5638) on one of Equifax's public-facing web applications.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-red-400">Root Cause</h3>
+                                <p class="mt-1">The core failure was Equifax's inability to patch the critical software vulnerability across all systems, despite receiving public notification and having internal policies instructing them to do so.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-orange-400">Compounding Issues</h3>
+                                <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
+                                    <li>An expired SSL certificate on an internal security tool prevented breach detection for 76 days.</li>
+                                    <li>Poor network segmentation allowed attackers to move laterally and access a much broader range of internal systems than should have been possible.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column: Timeline -->
+                <aside class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">Breach Timeline</h2>
+                    <div class="relative pl-4">
+                        <div class="timeline-item relative pb-8">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-semibold text-white">March 2017</h4>
+                            <p class="text-sm">Apache Struts vulnerability (CVE-2017-5638) is publicly disclosed. Equifax is notified but fails to patch all systems.</p>
+                        </div>
+                        <div class="timeline-item relative pb-8">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-semibold text-white">May 13 - July 30, 2017</h4>
+                            <p class="text-sm">Attackers exploit the vulnerability, gaining persistent access to Equifax's network.</p>
+                        </div>
+                        <div class="timeline-item relative pb-8">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-semibold text-white">July 29, 2017</h4>
+                            <p class="text-sm">Equifax's security team finally detects suspicious network activity.</p>
+                        </div>
+                        <div class="timeline-item relative">
+                            <div class="timeline-dot"></div>
+                            <h4 class="font-semibold text-white">September 7, 2017</h4>
+                            <p class="text-sm">Equifax publicly announces the breach, affecting an estimated 147 million people.</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Impact Analysis -->
             <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
-                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Where I Stood: My Initial Audit</h2>
-                <p class="mb-6">To improve my security, I first had to understand my weaknesses. Here's what I found during my self-assessment:</p>
-                <div class="space-y-4 text-gray-300">
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Passwords and Authentication:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>My passwords were mostly strong and unique, but I wasn't updating them regularly.</li>
-                            <li>I was already using a password manager and had MFA enabled on my most important accounts.</li>
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">Impact Analysis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+                    <div class="bg-gray-700 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-red-400 flex items-center"><i class="fas fa-dollar-sign mr-2"></i>Financial Impact</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1 text-sm">
+                            <li>Settlement up to $700 million with FTC, CFPB, and states.</li>
+                            <li>Total costs exceeded $1.4 billion including legal fees, security upgrades, and fines.</li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Device Security:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>My main devices had active antivirus software and firewalls.</li>
-                            <li>However, I realized I was occasionally neglecting to update some of my third-party apps.</li>
+                    <div class="bg-gray-700 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-orange-400 flex items-center"><i class="fas fa-users-slash mr-2"></i>Reputational Damage</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1 text-sm">
+                            <li>Massive loss of public trust and widespread customer anger.</li>
+                            <li>Intense, negative global media coverage.</li>
+                            <li>Resignation of CEO, CIO, and CSO.</li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Social Media Privacy:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>While my profiles were set to private, I found that I was oversharing personal details and travel plans.</li>
-                            <li>I also wasn't reviewing my privacy settings as often as I should have been.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Email Practices:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>I felt confident in my ability to spot phishing attempts and verify email sources.</li>
-                            <li>My main weakness here was a lack of automated email filtering rules.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Data Backup:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>I had a decent backup routine: weekly to an external drive and monthly to the cloud.</li>
-                            <li class="text-orange-400">Key finding: I discovered my local backup was not encrypted, leaving it vulnerable.</li>
+                    <div class="bg-gray-700 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-yellow-400 flex items-center"><i class="fas fa-cogs mr-2"></i>Operational Consequences</h3>
+                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1 text-sm">
+                            <li>Major diversion of resources to containment and investigation.</li>
+                            <li>Delayed technology modernization efforts.</li>
+                            <li>Complete overhaul of cybersecurity operations and policies.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Section 2: Risk Evaluation -->
+            <!-- Lessons Learned & Post-Breach Actions -->
             <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
-                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Understanding My Risks</h2>
-                <p class="mb-6">Based on the audit, I evaluated each issue to prioritize what needed fixing first. This helped me focus my efforts on the most significant threats.</p>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead class="text-white">
-                            <tr>
-                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600">Risk Area</th>
-                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600 text-center">Severity</th>
-                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600 text-center">Likelihood</th>
-                                <th class="p-3 text-sm font-semibold tracking-wide border-b-2 border-gray-600 text-center">My Priority</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-700">
-                            <tr class="hover:bg-gray-700 transition-colors duration-200">
-                                <td class="p-3">Outdated third-party apps</td>
-                                <td class="p-3 text-center">High</td>
-                                <td class="p-3 text-center">Medium</td>
-                                <td class="p-3 text-center priority-high">High</td>
-                            </tr>
-                            <tr class="hover:bg-gray-700 transition-colors duration-200">
-                                <td class="p-3">Weak or reused passwords</td>
-                                <td class="p-3 text-center">Medium</td>
-                                <td class="p-3 text-center">High</td>
-                                <td class="p-3 text-center priority-high">High</td>
-                            </tr>
-                            <tr class="hover:bg-gray-700 transition-colors duration-200">
-                                <td class="p-3">Oversharing on social media</td>
-                                <td class="p-3 text-center">Medium</td>
-                                <td class="p-3 text-center">Medium</td>
-                                <td class="p-3 text-center priority-medium">Medium</td>
-                            </tr>
-                            <tr class="hover:bg-gray-700 transition-colors duration-200">
-                                <td class="p-3">Unencrypted local backup</td>
-                                <td class="p-3 text-center">Medium</td>
-                                <td class="p-3 text-center">Medium</td>
-                                <td class="p-3 text-center priority-medium">Medium</td>
-                            </tr>
-                            <tr class="hover:bg-gray-700 transition-colors duration-200">
-                                <td class="p-3">Lack of email filters</td>
-                                <td class="p-3 text-center">Low</td>
-                                <td class="p-3 text-center">Medium</td>
-                                <td class="p-3 text-center priority-low">Low</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Section 3: Improvement Plan -->
-            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
-                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. My Action Plan for Better Security</h2>
-                 <p class="mb-6">With a clear view of the risks, I created this actionable plan to strengthen my digital defenses. These are the commitments I'm making to myself.</p>
-                <div class="space-y-4">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">Lessons Learned & Corrective Actions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
                     <div>
-                        <h3 class="font-semibold text-lg text-white">Passwords and Authentication:</h3>
+                        <h3 class="font-semibold text-lg text-white">Vulnerabilities Exploited</h3>
                         <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>I will rotate all my passwords every 6 months using my password manager.</li>
-                            <li>I will conduct an audit of my saved passwords to eliminate any duplicates.</li>
+                            <li>Unpatched software (Apache Struts).</li>
+                            <li>Lack of proper asset and vulnerability management.</li>
+                            <li>Insufficient monitoring due to expired security certificates.</li>
+                            <li>Poor network segmentation.</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-semibold text-lg text-white">Device Security:</h3>
+                        <h3 class="font-semibold text-lg text-white">Preventive Measures That Were Missed</h3>
                         <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>I will set monthly reminders to check and update all my third-party applications.</li>
-                            <li>I will enable automatic updates for applications wherever possible.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Social Media Privacy:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>I will review and adjust my privacy settings on all platforms every quarter.</li>
-                            <li>I will stop sharing travel or other sensitive updates in real time.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Email Practices:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>I will implement email filters to automatically flag emails from unknown domains.</li>
-                            <li>I will participate in a phishing simulation test quarterly to keep my skills sharp.</li>
-                        </ul>
-                    </div>
-                     <div>
-                        <h3 class="font-semibold text-lg text-white">Data Backup:</h3>
-                        <ul class="list-disc list-inside mt-2 ml-4 space-y-1">
-                            <li>I will encrypt my local backup drive using my OS's built-in encryption tools.</li>
-                            <li>I will create and follow a weekly backup checklist to ensure I don't miss it.</li>
+                            <li>Immediate and comprehensive patching.</li>
+                            <li>Regular inventory and security certificate audits.</li>
+                            <li>Implementation of proper network segmentation.</li>
+                            <li>Routine internal penetration testing.</li>
                         </ul>
                     </div>
                 </div>
             </section>
-
-            <!-- Section 4: Monitoring -->
-            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
-                <h2 class="text-2xl sm:text-3xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Staying on Track: How I'll Monitor My Progress</h2>
-                <p class="mb-6">A plan is only useful if you stick to it. Here’s how I’ll hold myself accountable:</p>
-                <ul class="list-disc list-inside ml-4 space-y-2">
-                    <li>I will use a spreadsheet to log my password changes, software updates, and backup status.</li>
-                    <li>I have set calendar reminders for all my monthly and quarterly checks.</li>
-                    <li>I plan to re-evaluate my cyber hygiene every three months to assess my progress and adjust the action plan as needed.</li>
-                </ul>
+            
+            <!-- ShieldGuard's Takeaway -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">Key Takeaways & Actionable Recommendations</h2>
+                <p class="mb-6">Analyzing the Equifax breach provides a clear roadmap for strengthening any organization's security posture. To avoid similar incidents, the following three areas must be prioritized:</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-cyan-400 mb-2">1. Master Patch Management</h3>
+                        <p class="text-sm">Enforce immediate patching of critical vulnerabilities, maintain a complete asset inventory, and conduct routine vulnerability assessments to verify compliance.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-cyan-400 mb-2">2. Enhance Internal Defenses</h3>
+                        <p class="text-sm">Properly segment networks to contain attacks. Deploy advanced IDS/IPS and ensure all security monitoring tools are fully functional and up-to-date.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="font-semibold text-lg text-cyan-400 mb-2">3. Fortify Data & Response</h3>
+                        <p class="text-sm">Encrypt sensitive data both at rest and in transit. Develop and regularly test a robust incident detection and response plan through tabletop exercises and simulations.</p>
+                    </div>
+                </div>
             </section>
 
         </main>
