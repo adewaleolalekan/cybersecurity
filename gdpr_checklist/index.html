@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDPR Compliance Report for NextGen Solutions</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .status-completed { color: #22c55e; /* text-green-500 */ }
+        .status-in-progress { color: #f97316; /* text-orange-500 */ }
+        .status-not-started { color: #ef4444; /* text-red-500 */ }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">GDPR Compliance Report: NextGen Solutions</h1>
+            <p class="mt-4 text-lg text-cyan-400">An External Compliance Officer's Assessment</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Introduction -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Introduction</h2>
+                <p>As a leading fintech company in West Africa, NextGen Solutions must adhere to the highest standards of data protection. This report provides an external assessment of the company's current posture regarding the General Data Protection Regulation (GDPR). It serves as an actionable checklist to guide NextGen Solutions in managing its compliance obligations and protecting the data of any EU residents who use its services.</p>
+            </section>
+
+            <!-- GDPR Checklist Table -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Actionable Compliance Checklist</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-700 text-white">
+                            <tr>
+                                <th class="p-3 text-sm font-semibold tracking-wide w-1/5">Category</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide w-2/5">Requirement</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide w-2/5">Recommended Action for NextGen</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700">
+                            <!-- Category: Governance -->
+                            <tr class="hover:bg-gray-700/50"><td class="p-3 font-bold text-cyan-400" colspan="4">Governance & Accountability</td></tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Scope & Applicability</td>
+                                <td class="p-3">Determine if GDPR applies.</td>
+                                <td class="p-3">Confirm if any clients, partners, or employees are EU residents. Review Zoho CRM and user databases.</td>
+                                <td class="p-3 text-center font-semibold status-completed">Completed</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">DPO Appointment</td>
+                                <td class="p-3">Appoint a Data Protection Officer if required.</td>
+                                <td class="p-3">The Head of Compliance has been formally assigned the role of DPO. This is a positive step.</td>
+                                <td class="p-3 text-center font-semibold status-completed">Completed</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Training & Awareness</td>
+                                <td class="p-3">Educate staff on GDPR responsibilities.</td>
+                                <td class="p-3">Roll out mandatory GDPR training for all teams, with specialized modules for Customer Support and Dev teams.</td>
+                                <td class="p-3 text-center font-semibold status-in-progress">In Progress</td>
+                            </tr>
+                            <!-- Category: Data Management -->
+                            <tr class="hover:bg-gray-700/50"><td class="p-3 font-bold text-cyan-400" colspan="4">Data Management & Processing</td></tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Lawful Basis</td>
+                                <td class="p-3">Ensure all processing has a legal basis.</td>
+                                <td class="p-3">Map all data processing activities in payment platforms and CRM to a lawful basis (e.g., contract, consent).</td>
+                                <td class="p-3 text-center font-semibold status-in-progress">In Progress</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Consent Management</td>
+                                <td class="p-3">Obtain valid, informed, and unambiguous consent.</td>
+                                <td class="p-3">Implement granular consent checkboxes in the app onboarding flow with links to the privacy policy.</td>
+                                <td class="p-3 text-center font-semibold status-not-started">Not Started</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Data Inventory</td>
+                                <td class="p-3">Document personal data flows and storage.</td>
+                                <td class="p-3">Create and maintain a Record of Processing Activities (ROPA) covering data in AWS, Zoho, and on-premise servers.</td>
+                                <td class="p-3 text-center font-semibold status-in-progress">In Progress</td>
+                            </tr>
+                             <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Third-Party Management</td>
+                                <td class="p-3">Ensure vendors comply with GDPR.</td>
+                                <td class="p-3">Review contracts and sign Data Processing Agreements (DPAs) with AWS, GitLab, Zoho, and CyberArk.</td>
+                                <td class="p-3 text-center font-semibold status-not-started">Not Started</td>
+                            </tr>
+                            <!-- Category: Security & Rights -->
+                            <tr class="hover:bg-gray-700/50"><td class="p-3 font-bold text-cyan-400" colspan="4">Security & Data Subject Rights</td></tr>
+                             <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Data Protection</td>
+                                <td class="p-3">Protect data against unauthorized access/loss.</td>
+                                <td class="p-3">Verify encryption (at-rest and in-transit) for all customer financial data hosted on AWS and on-premise servers.</td>
+                                <td class="p-3 text-center font-semibold status-completed">Completed</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Access Control</td>
+                                <td class="p-3">Limit data access based on role (RBAC).</td>
+                                <td class="p-3">Audit and enforce RBAC policies in CyberArk and AWS IAM to ensure least privilege.</td>
+                                <td class="p-3 text-center font-semibold status-in-progress">In Progress</td>
+                            </tr>
+                             <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Data Subject Rights</td>
+                                <td class="p-3">Enable rights like access, rectification, and erasure.</td>
+                                <td class="p-3">Develop an internal workflow using Freshdesk to handle Data Subject Access Requests (DSARs).</td>
+                                <td class="p-3 text-center font-semibold status-not-started">Not Started</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Breach Notification</td>
+                                <td class="p-3">Notify authorities and individuals of breaches.</td>
+                                <td class="p-3">Develop and test an incident response plan that includes a 72-hour breach notification procedure.</td>
+                                <td class="p-3 text-center font-semibold status-in-progress">In Progress</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Best Practices -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. Officer's Recommendation on Best Practices</h2>
+                <div class="flex items-start">
+                    <i class="fas fa-shield-alt text-green-400 text-3xl mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Privacy by Design</h3>
+                        <p>It is strongly recommended that NextGen Solutions embed data protection principles into all new products and systems from the ground up. This includes adopting data minimization in the development lifecycle and conducting DPIAs for any new high-risk processing activities, such as the introduction of new biometric authentication features.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>Report Prepared for NextGen Solutions by [External Compliance Officer/Firm Name]</p>
+            <p>&copy; 2025</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
