@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Secure Network Topology for a Small Office</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .terminal {
+            background-color: #111827; /* bg-gray-900 */
+            border: 1px solid #374151; /* border-gray-700 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .code-block {
+            background-color: #1f2937; /* bg-gray-800 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Lab: Designing a Secure Network Topology</h1>
+            <p class="mt-4 text-lg text-cyan-400">A Small Office Network with a DMZ and Firewall</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Project Objective -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Project Objective</h2>
+                <p>This project demonstrates the design and implementation of a secure network topology for a small office using Cisco Packet Tracer. The primary goal was to segment the network into distinct security zones (Office, Guest, and DMZ) and enforce a strict access control policy using a Cisco ASA firewall to protect internal resources while safely exposing a public-facing web server.</p>
+            </section>
+
+            <!-- Network Design & Segmentation -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Network Segmentation and Design</h2>
+                <p class="mb-6">The network is segmented into three logical zones, each assigned to a specific VLAN and IP subnet to isolate traffic and enforce security policies.</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-700 text-white">
+                            <tr>
+                                <th class="p-3 text-sm font-semibold tracking-wide">Zone</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide">VLAN ID</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide">IP Range</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide">Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-600">
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-cyan-400">Office Zone</td>
+                                <td class="p-3 font-mono">10</td>
+                                <td class="p-3 font-mono">192.168.10.0/24</td>
+                                <td class="p-3">Internal trusted network for employee PCs.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-orange-400">Guest Zone</td>
+                                <td class="p-3 font-mono">20</td>
+                                <td class="p-3 font-mono">192.168.20.0/24</td>
+                                <td class="p-3">Isolated network for guest WiFi access, with no access to internal resources.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-yellow-400">DMZ Zone</td>
+                                <td class="p-3 font-mono">30</td>
+                                <td class="p-3 font-mono">192.168.30.0/24</td>
+                                <td class="p-3">Demilitarized Zone to host the public-facing web server, accessible from the internet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Firewall Configuration -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. Firewall Configuration (Cisco ASA 5506)</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">Security Levels</h3>
+                        <p class="text-sm text-gray-400 mb-4">Security levels are assigned to each interface to create an implicit security policy where traffic is allowed from a higher level to a lower level, but not vice-versa without an explicit rule.</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                            <li><strong>Office (g1/1):</strong> <span class="font-mono text-green-400">security-level 100</span> (Most Trusted)</li>
+                            <li><strong>Guest (g1/2):</strong> <span class="font-mono text-yellow-400">security-level 50</span></li>
+                            <li><strong>DMZ (g1/3):</strong> <span class="font-mono text-orange-400">security-level 25</span></li>
+                            <li><strong>Outside (g1/8):</strong> <span class="font-mono text-red-400">security-level 0</span> (Least Trusted)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">Access Control Rules</h3>
+                        <p class="text-sm text-gray-400 mb-4">Explicit access rules were configured to enforce the security policy.</p>
+                        <div class="code-block">
+<pre><code>! Allow Office zone full outbound access
+permit ip 192.168.10.0 255.255.255.0 any
+
+! Block Guest zone from accessing Office zone
+deny ip 192.168.20.0 255.255.255.0 192.168.10.0 255.255.255.0
+
+! Allow external traffic to the Web Server on HTTP/HTTPS
+permit tcp any host 192.168.30.2 eq 80
+permit tcp any host 192.168.30.2 eq 443</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Verification -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Security Testing and Verification</h2>
+                <p class="mb-6">The firewall policy was tested by attempting to ping between zones to verify that the access rules were working as intended.</p>
+                <div class="terminal">
+<pre><code><span class="text-green-400"># Test from Guest PC (192.168.20.10) to Office PC (192.168.10.10)</span>
+C:\>ping 192.168.10.10
+
+Pinging 192.168.10.10 with 32 bytes of data:
+<span class="text-red-400">Request timed out.</span>
+<span class="text-red-400">Request timed out.</span>
+
+Ping statistics for 192.168.10.10:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)
+
+<span class="text-gray-400">Result: Success. Traffic from Guest to Office is blocked by the firewall as intended.</span>
+</code></pre>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">5. Conclusion</h2>
+                <div class="flex items-start">
+                    <i class="fas fa-shield-alt text-green-400 text-3xl mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Effective Network Segmentation</h3>
+                        <p>This lab successfully demonstrates a defense-in-depth approach to network design. By segmenting the network into zones with varying levels of trust and enforcing a strict firewall policy, we can significantly reduce the attack surface. The Guest network is isolated from critical internal resources, and the public-facing web server is placed in a secure DMZ, protecting the internal Office network from direct external threats.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 Adewale Olalekan - A Personal Cybersecurity Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
