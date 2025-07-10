@@ -13,7 +13,7 @@ A research report analyzing the 2017 Equifax data breach. This case study breaks
 - Examination of the financial, reputational, and operational impacts.
 - Actionable recommendations for preventing similar incidents in any organization.
 
-[View Project](https://adewaleolalekan.github.io/cybersecurity/equifax_data_breach/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/equifax_data_breach/)
 
 ---
 
@@ -26,7 +26,7 @@ A hands-on lab demonstrating the creation and testing of a basic Local Area Netw
 - Verified end-to-end connectivity using the ping command.
 - Demonstrates foundational skills in networking, simulation, and troubleshooting.
 
-[View Project](https://adewaleolalekan.github.io/cybersecurity/simple_network/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/simple_network/)
 
 ---
 
@@ -39,19 +39,19 @@ A hands-on lab focused on network segmentation using Virtual LANs (VLANs) and en
 - Enabled IP routing on a Layer 3 switch to allow for inter-VLAN communication.
 - Verified connectivity between VLANs using ping.
 
-[View Project](https://adewaleolalekan.github.io/cybersecurity/inter_vlan/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/inter_vlan/)
 
 ---
 
-## Project 4: JavaScript Essentials
-A project that introduces the basics of JavaScript by adding functionality and interactivity to webpages.
+## Project 4: Lab - Wireshark Traffic Capture & Analysis
+A practical lab involving the capture and analysis of live network traffic using Wireshark to identify protocols, detect anomalies, and assess security posture.
 
-### Features:
-- DOM manipulation for dynamic webpage updates.
-- Event listeners to respond to user actions.
-- Basic JavaScript functions and loops for logic implementation.
+### Lab Highlights:
+- Captured live network traffic during a typical user session..
+- Analyzed protocol distribution (QUIC, TCP, UDP) and encryption levels.
+- Identified potential security threats, including UDP port scanning and DNS tunneling characteristics.
 
-[View Project](https://adewaleolalekan.github.io/3mtt/javascript_essentials/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/wireshark_traffic_analysis/)
 
 ---
 
