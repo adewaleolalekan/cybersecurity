@@ -55,15 +55,16 @@ A practical lab involving the capture and analysis of live network traffic using
 
 ---
 
-## Project 5: Meme Generator
-A fun and creative project using JavaScript to create a meme generator. Users can upload images and add custom text to generate and download memes.
+## Project 5: Case Study - Risk Assessment for a Fintech Company
+A comprehensive risk assessment for a fictional fintech company, "NextGen Solutions." This project involves identifying critical assets, analyzing threats, and developing a prioritized risk register and mitigation plan.
 
-### Features:
-- File upload functionality for custom images.
-- Overlay text customization (font, size, color).
-- Downloadable memes.
+### Key Activities:
+- Defined the scope of the assessment, including key assets and security domains.
+- Created a risk register identifying threats like phishing, insider misuse, and API exploits.
+- Developed a risk matrix to prioritize vulnerabilities based on impact and likelihood.
+- Proposed detailed mitigation strategies for top-priority risks.
 
-[View Project](https://adewaleolalekan.github.io/3mtt/meme_generator/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/basic_risk_assessment/)
 
 ---
 
@@ -71,3 +72,7 @@ A fun and creative project using JavaScript to create a meme generator. Users ca
 1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/adewaleolalekan/cybersecurity.git
+2. Navigate to the repository folder:
+   ```bash
+   cd cybersecurity_portfolio
+3. Open any of the <code>.html</code> files directly in your web browser.
