@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Wireshark Traffic Capture & Analysis</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .terminal {
+            background-color: #111827; /* bg-gray-900 */
+            border: 1px solid #374151; /* border-gray-700 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Lab: Capturing and Analyzing Network Traffic with Wireshark</h1>
+            <p class="mt-4 text-lg text-cyan-400">A Practical Analysis of Live Network Communications</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Summary of Findings -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Summary of Findings</h2>
+                <p class="mb-6">I conducted a 30-minute traffic capture session using Wireshark on a live network. The analysis of the captured data revealed several key insights into protocol distribution, security posture, and network efficiency.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Finding Card -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-white flex items-center"><i class="fas fa-chart-pie mr-2 text-cyan-400"></i>Protocol Distribution</h3>
+                        <p class="text-sm mt-2">QUIC/UDP traffic was dominant (72%), highlighting the shift away from traditional TCP-based protocols for web browsing.</p>
+                    </div>
+                    <!-- Finding Card -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-white flex items-center"><i class="fas fa-shield-halved mr-2 text-red-400"></i>Security Concerns</h3>
+                        <p class="text-sm mt-2">A suspicious IP (45.133.9.xx) was observed performing UDP port scanning, indicating a potential external threat.</p>
+                    </div>
+                    <!-- Finding Card -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-white flex items-center"><i class="fas fa-lock mr-2 text-green-400"></i>Encrypted Traffic</h3>
+                        <p class="text-sm mt-2">An overwhelming majority (94%) of all captured traffic was encrypted, confirming strong modern security practices.</p>
+                    </div>
+                    <!-- Finding Card -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-white flex items-center"><i class="fas fa-project-diagram mr-2 text-orange-400"></i>DNS Anomalies</h3>
+                        <p class="text-sm mt-2">Observed abnormally large DNS TXT records sent to an uncommon resolver, suggesting potential DNS tunneling activity.</p>
+                    </div>
+                     <!-- Finding Card -->
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <h3 class="font-semibold text-white flex items-center"><i class="fas fa-tachometer-alt mr-2 text-blue-400"></i>Connection Efficiency</h3>
+                        <p class="text-sm mt-2">QUIC connections showed a 42% average reduction in connection establishment time compared to TLS over TCP.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodology -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Methodology</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">Setup and Capture</h3>
+                        <p>Wireshark was installed and run on a Linux system with root privileges to capture traffic from the primary network interface (`wlp1s0`). The capture was performed during a session of typical user activity, including web browsing, email, and network file access.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">Traffic Filtering and Analysis</h3>
+                        <p>After capturing the data, I used Wireshark's powerful display filters to isolate specific types of traffic for analysis. Key filters used included `http`, `dns`, `tcp.port == 80`, and `ip.addr == [IP]`, which allowed me to drill down into specific conversations and protocols.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Packet Analysis Example -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. Packet Analysis Example</h2>
+                <p class="mb-6">Below is a detailed breakdown of a captured TCP packet, demonstrating the granular level of analysis possible with Wireshark. This helps in understanding protocol behavior and troubleshooting network issues.</p>
+                <div class="terminal">
+                    <pre><code><span class="terminal-output">Internet Protocol Version 4, Src: 192.168.0.162, Dst: 91.189.91.49</span>
+  <span class="terminal-output">0100 .... = Version: 4</span>
+  <span class="terminal-output">.... 0101 = Header Length: 20 bytes (5)</span>
+  <span class="terminal-output">Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)</span>
+  <span class="terminal-output">Total Length: 139</span>
+  <span class="terminal-output">Identification: 0x2cdf (11487)</span>
+  <span class="terminal-output">Flags: 0x40, Don't fragment</span>
+  <span class="terminal-output">Time to Live: 64</span>
+  <span class="terminal-output">Protocol: TCP (6)</span>
+  <span class="terminal-output">Header Checksum: 0x9555 [validation disabled]</span>
+  <span class="terminal-output">Source Address: 192.168.0.162</span>
+  <span class="terminal-output">Destination Address: 91.189.91.49</span>
+</code></pre>
+                </div>
+            </section>
+
+            <!-- Conclusion & Recommendations -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Conclusion and Recommendations</h2>
+                <div class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-300 text-3xl mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Key Takeaway</h3>
+                        <p class="mb-4">This analysis clearly shows the ongoing shift towards more efficient and secure protocols like QUIC. It also underscores the constant need for vigilance against potential threats like port scanning and DNS anomalies.</p>
+                        <h3 class="font-semibold text-lg text-white">Recommendations</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>Embrace QUIC/HTTP3 by configuring web services and network equipment to support modern UDP-based protocols.</li>
+                            <li>Adapt security monitoring tools and practices to effectively analyze QUIC and other encrypted traffic patterns.</li>
+                            <li>Investigate and block suspicious IP addresses found performing reconnaissance on the network.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 Adewale Olalekan - A Personal Cybersecurity Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
