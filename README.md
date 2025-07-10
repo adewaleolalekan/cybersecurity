@@ -110,6 +110,19 @@ A lab focused on designing and implementing a secure network for a small office 
 
 ---
 
+## Project 9: Lab - Web Application Vulnerability Scan
+A vulnerability assessment of the Damn Vulnerable Web Application (DVWA) using OWASP ZAP and manual testing techniques.
+
+### Key Activities:
+- Performed passive and active scans to identify common web application vulnerabilities.
+- Manually tested and validated high-severity findings like SQL Injection, XSS, and Command Injection.
+- Provided proof-of-concept payloads and observed results for each validated vulnerability.
+- Developed a clear remediation plan for each identified issue.
+
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/zap_vulnerability_scan/)
+
+---
+
 ## How to Use
 1. Clone this repository to your local machine:
    ```bash
