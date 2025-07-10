@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="logo.png" width="200">
+</p>
+
+
 # Cybersecurity Portfolio Projects
 
 This repository contains a collection of projects and case studies designed to practice and showcase skills in cybersecurity. Each project covers key concepts, from breach analysis to hands-on secure network simulation.
