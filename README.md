@@ -96,6 +96,20 @@ A hands-on lab demonstrating the configuration of Role-Based Access Control on a
 [View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/rbac/)
 
 ---
+
+## Project 8: Lab - Secure Network Topology Design
+A lab focused on designing and implementing a secure network for a small office using Cisco Packet Tracer. This project demonstrates a defense-in-depth strategy.
+
+### Key Features:
+- Designed a segmented network with distinct Office, Guest, and DMZ zones using VLANs.
+- Configured a Cisco ASA firewall with security levels and explicit access control rules.
+- Isolated the public-facing web server in a DMZ to protect the internal network.
+- Tested firewall rules to verify that traffic between zones was correctly blocked or permitted.
+
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/secure_network/)
+
+---
+
 ## How to Use
 1. Clone this repository to your local machine:
    ```bash
