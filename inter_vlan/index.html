@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: VLAN Configuration & Inter-VLAN Routing</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .terminal {
+            background-color: #111827; /* bg-gray-900 */
+            border: 1px solid #374151; /* border-gray-700 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .terminal-header {
+            color: #9ca3af; /* text-gray-400 */
+            margin-bottom: 1rem;
+        }
+        .terminal-prompt {
+            color: #16a34a; /* text-green-600 */
+        }
+        .terminal-output {
+            color: #d1d5db; /* text-gray-300 */
+        }
+        .code-block {
+            background-color: #1f2937; /* bg-gray-800 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Lab: VLAN Configuration & Inter-VLAN Routing</h1>
+            <p class="mt-4 text-lg text-cyan-400">Network Segmentation using a Layer 3 Switch</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Introduction & Network Environment -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Project Overview</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2">Objective</h3>
+                        <p>This project demonstrates how to segment a network into two distinct broadcast domains using Virtual LANs (VLANs). The lab covers the creation of VLANs, assignment of switch ports, and configuration of a Layer 3 switch to enable routing between the different VLANs.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2">Network Environment</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>Switch:</strong> 1x Layer 3 Switch (3560-24PS)</li>
+                            <li><strong>End Devices:</strong> 6x PCs</li>
+                            <li><strong>VLAN 10 (Admin_Traffic):</strong> 192.168.10.0/24</li>
+                            <li><strong>VLAN 20 (Guest_Traffic):</strong> 192.168.20.0/24</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuration Steps -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Configuration Steps</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- VLAN Definition and Port Assignment -->
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">VLAN Definition & Port Assignment</h3>
+                        <p class="text-sm text-gray-400 mb-4">First, I created two VLANs and assigned a range of ports to each.</p>
+                        <div class="code-block">
+<pre><code>Switch(config)# vlan 10
+Switch(config-vlan)# name Admin_Traffic
+Switch(config-vlan)# exit
+
+Switch(config)# vlan 20
+Switch(config-vlan)# name Guest_Traffic
+Switch(config-vlan)# exit
+
+Switch(config)# interface range fa0/1-3
+Switch(config-if-range)# switchport mode access
+Switch(config-if-range)# switchport access vlan 10
+
+Switch(config)# interface range fa0/4-6
+Switch(config-if-range)# switchport mode access
+Switch(config-if-range)# switchport access vlan 20</code></pre>
+                        </div>
+                    </div>
+                    <!-- SVI and IP Routing -->
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">SVI Creation & IP Routing</h3>
+                        <p class="text-sm text-gray-400 mb-4">Next, I created Switch Virtual Interfaces (SVIs) to act as default gateways for each VLAN and enabled IP routing on the switch.</p>
+                        <div class="code-block">
+<pre><code>Switch(config)# interface vlan 10
+Switch(config-if)# ip address 192.168.10.1 255.255.255.0
+Switch(config-if)# no shutdown
+
+Switch(config)# interface vlan 20
+Switch(config-if)# ip address 192.168.20.1 255.255.255.0
+Switch(config-if)# no shutdown
+
+Switch(config)# ip routing</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Connectivity Test -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. Testing and Verification</h2>
+                <p class="mb-6">With the configuration complete, I tested connectivity from a PC in the Admin VLAN (10) to a PC in the Guest VLAN (20) to confirm that inter-VLAN routing was working correctly.</p>
+                <div class="terminal">
+                    <div class="terminal-header">Ping from PC1 (VLAN 10) to PC4 (VLAN 20)</div>
+                    <pre><code><span class="terminal-prompt">C:\></span><span class="terminal-output">ipconfig</span>
+
+<span class="terminal-output">FastEthernet0 connection:</span>
+   <span class="terminal-output">IPv4 Address. . . . . . . . . . . : 192.168.10.2</span>
+   <span class="terminal-output">Subnet Mask . . . . . . . . . . . : 255.255.255.0</span>
+   <span class="terminal-output">Default Gateway . . . . . . . . . : 192.168.10.1</span>
+
+<span class="terminal-prompt">C:\></span><span class="terminal-output">ping 192.168.20.2</span>
+
+<span class="terminal-output">Pinging 192.168.20.2 with 32 bytes of data:</span>
+<span class="terminal-output">Reply from 192.168.20.2: bytes=32 time&lt;1ms TTL=127</span>
+<span class="terminal-output">Reply from 192.168.20.2: bytes=32 time&lt;1ms TTL=127</span>
+<span class="terminal-output">Reply from 192.168.20.2: bytes=32 time&lt;1ms TTL=127</span>
+<span class="terminal-output">Reply from 192.168.20.2: bytes=32 time&lt;1ms TTL=127</span>
+
+<span class="terminal-output">Ping statistics for 192.168.20.2:</span>
+    <span class="terminal-output">Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),</span>
+</code></pre>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Conclusion</h2>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-400 text-3xl mr-4"></i>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Successful Inter-VLAN Routing</h3>
+                        <p>The successful ping test confirms that the Layer 3 switch is correctly routing traffic between VLAN 10 and VLAN 20. This lab successfully demonstrates the fundamental concepts of network segmentation with VLANs and the configuration of a Layer 3 switch to manage traffic between them.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 Adewale Olalekan - A Personal Cybersecurity Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
