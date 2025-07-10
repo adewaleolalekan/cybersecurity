@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Implementing RBAC in Linux</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .terminal {
+            background-color: #111827; /* bg-gray-900 */
+            border: 1px solid #374151; /* border-gray-700 */
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .code-block {
+            background-color: #1f2937; /* bg-gray-800 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Lab: Implementing Role-Based Access Control (RBAC) in Linux</h1>
+            <p class="mt-4 text-lg text-cyan-400">Securing a File System with Users, Groups, and ACLs</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Project Objective & Roles -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Project Objective & Defined Roles</h2>
+                <p class="mb-6">This project demonstrates the implementation of a Role-Based Access Control (RBAC) system on a Linux file system. The goal was to secure a directory structure by defining specific user roles and enforcing the principle of least privilege using standard permissions and Access Control Lists (ACLs).</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-700 text-white">
+                            <tr>
+                                <th class="p-3 text-sm font-semibold tracking-wide">Role</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide">User</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide">Access Permissions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-600">
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-cyan-400">Administrator</td>
+                                <td class="p-3 font-mono">admin_user</td>
+                                <td class="p-3">Full access (read/write/execute) to all directories.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-cyan-400">Staff</td>
+                                <td class="p-3 font-mono">staff_user</td>
+                                <td class="p-3">Read/write to `/staff`, read-only to `/admin`, no access to `/guests`.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-cyan-400">Guest</td>
+                                <td class="p-3 font-mono">guest_user</td>
+                                <td class="p-3">Read-only access to `/guests`, no access elsewhere.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Configuration Steps -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Configuration and Implementation Commands</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2">Step 1: Create Directory, Users, and Groups</h3>
+                        <p class="text-sm text-gray-400 mb-4">The initial setup involved creating the necessary directory structure, user accounts, and groups for each role.</p>
+                        <div class="code-block">
+<pre><code># Create directory structure
+mkdir -p /rbac-project/{admin,staff,guests}
+
+# Create users and groups
+sudo useradd -m admin_user
+sudo groupadd rbac_admin
+sudo usermod -aG rbac_admin admin_user
+
+sudo useradd -m staff_user
+sudo groupadd rbac_staff
+sudo usermod -aG rbac_staff staff_user
+
+sudo useradd -m guest_user
+sudo groupadd rbac_guest
+sudo usermod -aG rbac_guest guest_user</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2">Step 2: Set Base and Directory-Specific Permissions</h3>
+                        <p class="text-sm text-gray-400 mb-4">Standard Unix permissions were applied to set the primary ownership and access rights for each directory.</p>
+                        <div class="code-block">
+<pre><code># Set ownership of parent directory
+sudo chown -R admin_user:rbac_admin /rbac-project
+
+# Admin directory: Full access for admin group
+sudo chown admin_user:rbac_admin /rbac-project/admin
+sudo chmod 750 /rbac-project/admin
+
+# Staff directory: Full access for staff group
+sudo chown admin_user:rbac_staff /rbac-project/staff
+sudo chmod 770 /rbac-project/staff
+
+# Guest directory: Read access for guest group
+sudo chown admin_user:rbac_guest /rbac-project/guests
+sudo chmod 750 /rbac-project/guests</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2">Step 3: Implement Fine-Grained Control with ACLs</h3>
+                        <p class="text-sm text-gray-400 mb-4">Access Control Lists (ACLs) were necessary to grant the `staff_user` read-only access to the `/admin` directory without changing the primary group. The SGID bit was also set to ensure new files inherit the parent directory's group.</p>
+                        <div class="code-block">
+<pre><code># Create a special group for read-only access
+sudo groupadd rbac_admin_readonly
+sudo usermod -aG rbac_admin_readonly staff_user
+
+# Set ACL for staff read-only access to admin directory
+sudo setfacl -m g:rbac_admin_readonly:r-x /rbac-project/admin
+
+# Set SGID bit on directories
+sudo chmod g+s /rbac-project/staff
+sudo chmod g+s /rbac-project/admin</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Verification -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. Permission Testing and Verification</h2>
+                <p class="mb-6">Each user role was tested to ensure the permissions were applied correctly.</p>
+                <div class="terminal">
+<pre><code><span class="text-green-400"># Staff User Test: Attempting to write to /admin directory</span>
+staff_user@kali:~$ touch /rbac-project/admin/staff_file.txt
+<span class="text-red-400">touch: cannot touch '/rbac-project/admin/staff_file.txt': Permission denied</span>
+
+<span class="text-green-400"># Staff User Test: Writing to /staff directory</span>
+staff_user@kali:~$ touch /rbac-project/staff/staff_file.txt
+<span class="text-gray-400">(Success)</span>
+
+<span class="text-green-400"># Staff User Test: Attempting to access /guests directory</span>
+staff_user@kali:~$ ls -la /rbac-project/guests
+<span class="text-red-400">ls: cannot open directory '/rbac-project/guests': Permission denied</span>
+
+<span class="text-green-400"># Guest User Test: Reading from /guests directory</span>
+guest_user@kali:~$ ls -la /rbac-project/guests
+<span class="text-gray-400">total 8
+drwxr-x--- 2 admin_user rbac_guest 4096 May 6 21:15 .
+... (output shows success)</span>
+
+<span class="text-green-400"># Guest User Test: Attempting to write to /guests directory</span>
+guest_user@kali:~$ touch /rbac-project/guests/guest_file.txt
+<span class="text-red-400">touch: cannot touch '/rbac-project/guests/guest_file.txt': Permission denied</span>
+</code></pre>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Observations and Lessons Learned</h2>
+                <div class="flex items-start">
+                    <i class="fas fa-lightbulb text-yellow-300 text-3xl mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Key Takeaways</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-2 text-sm">
+                            <li><strong>Scalability of Groups:</strong> Group-based access control is far more scalable and manageable than assigning permissions to individual users.</li>
+                            <li><strong>Layered Permissions:</strong> Using standard Unix permissions as a base layer and ACLs for exceptions provides a powerful, defense-in-depth approach.</li>
+                            <li><strong>Principle of Least Privilege:</strong> This model successfully grants each user only the minimum access necessary for their role, reducing the potential impact of a compromised account.</li>
+                            <li><strong>ACLs for Granularity:</strong> Standard permissions alone were insufficient. ACLs were essential for granting specific, overlapping permissions (like read-only access for one group and read-write for another).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 Adewale Olalekan - A Personal Cybersecurity Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
