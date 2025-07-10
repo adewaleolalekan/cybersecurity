@@ -68,6 +68,17 @@ A comprehensive risk assessment for a fictional fintech company, "NextGen Soluti
 
 ---
 
+## Project 6: Report - GDPR Compliance Checklist for a Fintech Company
+An external compliance officer's report for a fictional fintech company, "NextGen Solutions." This project applies GDPR principles to a specific business context, providing actionable recommendations.
+
+### Key Features:
+- Outlines key GDPR requirements, from lawful basis for processing to data subject rights.
+- Provides a detailed, actionable checklist for tracking compliance status across an organization.
+
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/gdpr_checklist/)
+
+---
+
 ## How to Use
 1. Clone this repository to your local machine:
    ```bash
