@@ -127,7 +127,9 @@ A vulnerability assessment of the Damn Vulnerable Web Application (DVWA) using O
 1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/adewaleolalekan/cybersecurity.git
+
 2. Navigate to the repository folder:
    ```bash
    cd cybersecurity_portfolio
+
 3. Open any of the <code>.html</code> files directly in your web browser.
