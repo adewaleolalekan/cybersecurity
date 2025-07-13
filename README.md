@@ -136,6 +136,7 @@ A research report analyzing the 2017 Equifax data breach. This case study breaks
 
 ---
 
+<!--
 ## How to Use
 1. Clone this repository to your local machine:
    ```
@@ -148,3 +149,4 @@ A research report analyzing the 2017 Equifax data breach. This case study breaks
    ```
 
 4. Open any of the <code>.html</code> files directly in your web browser.
+-->
