@@ -9,16 +9,16 @@ This repository contains a collection of projects and case studies designed to p
 
 ---
 
-## Project 1: Case Study - The Equifax Data Breach
-A research report analyzing the 2017 Equifax data breach. This case study breaks down the attack timeline, root causes, and impact, drawing critical lessons for organizational security.
+## Project 1: Incident Report: Malware Traffic Analysis
+A capstone project involving the forensic analysis of a network packet capture (pcap) to investigate a malware infection. This report details the full incident lifecycle from initial infection to C2 communication.
 
-### Key Analysis Points:
-- Detailed timeline of the breach events from vulnerability disclosure to public announcement.
-- Analysis of the primary attack vector (Apache Struts vulnerability) and compounding failures.
-- Examination of the financial, reputational, and operational impacts.
-- Actionable recommendations for preventing similar incidents in any organization.
+### Key Activities:
+- Analyzed DNS and HTTP traffic in Wireshark to reconstruct the attack timeline.
+- Identified malicious file downloads, PowerShell payloads, and persistence mechanisms.
+- Uncovered primary and secondary Command & Control (C2) channels, including a RAT.
+- Compiled a detailed list of Indicators of Compromise (IOCs) and provided a three-tiered mitigation plan.
 
-[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/equifax_data_breach/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/malware_traffic_analysis/)
 
 ---
 
@@ -120,6 +120,19 @@ A vulnerability assessment of the Damn Vulnerable Web Application (DVWA) using O
 - Developed a clear remediation plan for each identified issue.
 
 [View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/zap_vulnerability_scan/)
+
+---
+
+## Project 10: Case Study - The Equifax Data Breach
+A research report analyzing the 2017 Equifax data breach. This case study breaks down the attack timeline, root causes, and impact, drawing critical lessons for organizational security.
+
+### Key Analysis Points:
+- Detailed timeline of the breach events from vulnerability disclosure to public announcement.
+- Analysis of the primary attack vector (Apache Struts vulnerability) and compounding failures.
+- Examination of the financial, reputational, and operational impacts.
+- Actionable recommendations for preventing similar incidents in any organization.
+
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/equifax_data_breach/)
 
 ---
 
