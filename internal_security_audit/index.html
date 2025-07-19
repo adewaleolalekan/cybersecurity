@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Security Audit Report: Botium Toys</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .status-pass { color: #22c55e; /* text-green-500 */ }
+        .status-fail { color: #ef4444; /* text-red-500 */ }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Internal Security Audit Report</h1>
+            <p class="mt-4 text-lg text-cyan-400">An Assessment of Controls and Compliance at Botium Toys</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="space-y-12">
+
+            <!-- Background Section -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">1. Background</h2>
+                <p class="mb-4">Botium Toys is a small U.S. business that develops and sells toys from a single physical location that serves as their main office, storefront, and warehouse. Recently, the company's online presence has grown significantly, attracting customers both domestically and internationally, including from the European Union (E.U.).</p>
+                <p>This rapid expansion has placed increasing pressure on the IT department to support a global online market securely. The IT manager has initiated this internal audit to address concerns about maintaining compliance and business operations without a clear security plan. The audit's goal is to identify and mitigate potential risks, threats, and vulnerabilities to critical assets, ensuring compliance with regulations like PCI DSS and GDPR.</p>
+            </section>
+
+            <!-- Executive Summary -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">2. Executive Summary</h2>
+                <p>This report outlines the findings of the internal security audit. The assessment revealed a significant risk score of <strong class="text-red-400">8 out of 10</strong> due to numerous missing security controls and gaps in compliance with major regulations. Key deficiencies were identified in access control, data protection, and disaster recovery. This report provides a detailed breakdown of the findings and offers prioritized recommendations to mitigate these risks and improve the company's overall security posture.</p>
+            </section>
+
+            <!-- Scope and Goals -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">3. Scope and Goals of the Audit</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2"><i class="fas fa-bullseye mr-2 text-cyan-400"></i>Scope</h3>
+                        <p class="text-sm">The audit covers the entire security program at Botium Toys, including all on-premises and employee equipment, data storage, internal processes, and compliance practices related to its physical and online retail operations.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-2"><i class="fas fa-tasks mr-2 text-cyan-400"></i>Goals</h3>
+                        <p class="text-sm">The primary goal is to assess existing assets and controls to identify deficiencies and determine which security and compliance best practices must be implemented to protect company assets, reduce risk, and ensure adherence to relevant regulations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls Assessment Checklist -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">4. Controls Assessment Checklist</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-700 text-white">
+                            <tr>
+                                <th class="p-3 text-sm font-semibold tracking-wide">Control</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide text-center">In Place?</th>
+                                <th class="p-3 text-sm font-semibold tracking-wide">Explanation</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-600">
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-red-400">Least Privilege</td>
+                                <td class="p-3 text-center status-fail"><i class="fas fa-times-circle"></i> No</td>
+                                <td class="p-3 text-sm">Currently, all employees have access to customer data; privileges need to be limited to reduce the risk of a breach.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-red-400">Disaster Recovery Plans</td>
+                                <td class="p-3 text-center status-fail"><i class="fas fa-times-circle"></i> No</td>
+                                <td class="p-3 text-sm">There are no disaster recovery plans in place. These need to be implemented to ensure business continuity.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-orange-400">Password Policies</td>
+                                <td class="p-3 text-center status-fail"><i class="fas fa-times-circle"></i> No</td>
+                                <td class="p-3 text-sm">Employee password requirements are minimal, which could allow a threat actor to more easily access secure data.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-red-400">Separation of Duties</td>
+                                <td class="p-3 text-center status-fail"><i class="fas fa-times-circle"></i> No</td>
+                                <td class="p-3 text-sm">Needs to be implemented to reduce the possibility of fraud/access to critical data.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Firewall</td>
+                                <td class="p-3 text-center status-pass"><i class="fas fa-check-circle"></i> Yes</td>
+                                <td class="p-3 text-sm">The existing firewall blocks traffic based on an appropriately defined set of security rules.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-red-400">Intrusion Detection System (IDS)</td>
+                                <td class="p-3 text-center status-fail"><i class="fas fa-times-circle"></i> No</td>
+                                <td class="p-3 text-sm">The IT department needs an IDS in place to help identify possible intrusions by threat actors.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-red-400">Backups</td>
+                                <td class="p-3 text-center status-fail"><i class="fas fa-times-circle"></i> No</td>
+                                <td class="p-3 text-sm">The IT department needs to have backups of critical data in case of a breach to ensure business continuity.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Antivirus Software</td>
+                                <td class="p-3 text-center status-pass"><i class="fas fa-check-circle"></i> Yes</td>
+                                <td class="p-3 text-sm">Antivirus software is installed and monitored regularly by the IT department.</td>
+                            </tr>
+                             <tr class="hover:bg-gray-700/50">
+                                <td class="p-3 font-semibold text-red-400">Encryption</td>
+                                <td class="p-3 text-center status-fail"><i class="fas fa-times-circle"></i> No</td>
+                                <td class="p-3 text-sm">Encryption is not currently used; implementing it would provide greater confidentiality of sensitive information.</td>
+                            </tr>
+                             <tr class="hover:bg-gray-700/50">
+                                <td class="p-3">Physical Locks & CCTV</td>
+                                <td class="p-3 text-center status-pass"><i class="fas fa-check-circle"></i> Yes</td>
+                                <td class="p-3 text-sm">The store’s physical location has sufficient locks and functioning CCTV surveillance.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Compliance Assessment -->
+            <section class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">5. Compliance Assessment</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">PCI DSS (Payment Card Industry Data Security Standard)</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start"><i class="fas fa-times-circle mr-3 mt-1 status-fail"></i><span><strong>Access to Cardholder Info:</strong> Fails. Currently, all employees have access to the company’s internal data.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle mr-3 mt-1 status-fail"></i><span><strong>Secure Environment:</strong> Fails. Credit card information is not encrypted and all employees have access to it.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle mr-3 mt-1 status-fail"></i><span><strong>Data Encryption Procedures:</strong> Fails. The company does not currently use encryption to ensure confidentiality.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle mr-3 mt-1 status-fail"></i><span><strong>Secure Password Policies:</strong> Fails. Password policies are nominal and no password management system is in place.</span></li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h3 class="font-semibold text-lg text-white mb-4">GDPR (General Data Protection Regulation)</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start"><i class="fas fa-times-circle mr-3 mt-1 status-fail"></i><span><strong>Data Privacy/Security:</strong> Fails. The company does not currently use encryption to ensure confidentiality of customer data.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-3 mt-1 status-pass"></i><span><strong>Breach Notification:</strong> Pass. A plan is in place to notify E.U. customers within 72 hours of a data breach.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle mr-3 mt-1 status-fail"></i><span><strong>Data Classification & Inventory:</strong> Fails. Current assets have been inventoried but not classified.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle mr-3 mt-1 status-pass"></i><span><strong>Privacy Policies & Procedures:</strong> Pass. Policies and procedures have been developed and are enforced.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations -->
+            <section class="bg-cyan-900/50 border border-cyan-700 p-6 sm:p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-white border-b-2 border-cyan-500 pb-3 mb-6">6. Recommendations</h2>
+                <p class="mb-4">To improve Botium Toys’ security posture and ensure the confidentiality of sensitive information, multiple controls need to be implemented. To address gaps in compliance, the company must implement controls such as Least Privilege, separation of duties, and encryption. The company also needs to properly classify assets to identify additional controls that may be needed.</p>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-lg text-red-400">Priority 1: Critical</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+                            <li><strong>Implement Access Controls:</strong> Enforce Least Privilege and Separation of Duties to restrict access to sensitive data.</li>
+                            <li><strong>Deploy Encryption:</strong> Encrypt sensitive data, especially customer financial information.</li>
+                            <li><strong>Establish Backups & DR Plan:</strong> Create disaster recovery plans and implement regular data backups.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-orange-400">Priority 2: High</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+                            <li><strong>Strengthen Password Policy:</strong> Update password policies and implement a password management system.</li>
+                            <li><strong>Install an IDS:</strong> Deploy an Intrusion Detection System to identify intrusions.</li>
+                            <li><strong>Formalize Legacy System Management:</strong> Establish a regular schedule and clear procedures for maintaining legacy systems.</li>
+                             <li><strong>Classify Assets:</strong> Properly classify all inventoried assets to better identify risks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500">
+            <p>&copy; 2025 Adewale Olalekan - A Personal Cybersecurity Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
