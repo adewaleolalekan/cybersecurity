@@ -22,16 +22,16 @@ A capstone project involving the forensic analysis of a network packet capture (
 
 ---
 
-## Project 2: Lab - Simple LAN with Cisco Packet Tracer
-A hands-on lab demonstrating the creation and testing of a basic Local Area Network (LAN) using Cisco Packet Tracer on a Linux system.
+## Project 2: Report - Internal Security Audit
+An internal security audit report for a fictional company, "Botium Toys." This project assesses the company's existing security controls and compliance posture against regulations like PCI DSS and GDPR.
 
-### Lab Features:
-- Built a star topology with two PCs and a central switch.
-- Configured static IP addresses and subnet masks on end devices.
-- Verified end-to-end connectivity using the ping command.
-- Demonstrates foundational skills in networking, simulation, and troubleshooting.
+### Key Activities:
+- Assessed administrative, technical, and physical controls to identify gaps.
+- Evaluated the company's adherence to PCI DSS and GDPR compliance best practices.
+- Identified critical deficiencies, including a lack of encryption, access controls, and disaster recovery.
+- Provided a prioritized list of recommendations to mitigate risks and improve the overall security posture.
 
-[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/simple_network/)
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/internal_security_audit/)
 
 ---
 
@@ -133,6 +133,19 @@ A research report analyzing the 2017 Equifax data breach. This case study breaks
 - Actionable recommendations for preventing similar incidents in any organization.
 
 [View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/equifax_data_breach/)
+
+---
+
+## Project 11: Lab - Simple LAN with Cisco Packet Tracer
+A hands-on lab demonstrating the creation and testing of a basic Local Area Network (LAN) using Cisco Packet Tracer on a Linux system.
+
+### Lab Features:
+- Built a star topology with two PCs and a central switch.
+- Configured static IP addresses and subnet masks on end devices.
+- Verified end-to-end connectivity using the ping command.
+- Demonstrates foundational skills in networking, simulation, and troubleshooting.
+
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/simple_network/)
 
 ---
 
