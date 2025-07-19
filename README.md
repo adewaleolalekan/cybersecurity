@@ -149,6 +149,18 @@ A hands-on lab demonstrating the creation and testing of a basic Local Area Netw
 
 ---
 
+## Project 12: Article - The Cybersecurity Compass: A Guide to Ethical Decision-Making
+An article exploring the core ethical principles and legal boundaries that guide cybersecurity professionals. This piece discusses the complexities of counterattacks, confidentiality, and privacy protection.
+
+### Lab Features:
+- The legal and ethical reasons why counterattacks are generally forbidden.
+- The foundational principles of confidentiality, privacy protection, and legal adherence.
+- Real-world examples, such as HIPAA, to illustrate the connection between legal and ethical duties.
+
+[View Project](https://adewaleolalekan.github.io/cybersecurity_portfolio/ethical_concepts/)
+
+---
+
 <!--
 ## How to Use
 1. Clone this repository to your local machine:
